@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Surveillance Dashboard</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">SS</div>
+        <div>
+          <h1>Smart Surveillance Dashboard</h1>
+          <p>Real-time alerts and crowd intelligence</p>
+        </div>
+      </div>
+      <div class="controls">
+        <label>
+          Threshold
+          <input id="threshold" type="number" min="1" value="6" />
+        </label>
+        <label>
+          Spike Delta
+          <input id="spikeDelta" type="number" min="1" value="3" />
+        </label>
+        <label>
+          Refresh (s)
+          <input id="refreshSec" type="number" min="1" value="2" />
+        </label>
+        <button id="toggleAuto">Auto: On</button>
+        <div id="debugStatus" class="debug-status">Status: booting...</div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>Live Metrics</h2>
+        <div class="metrics">
+          <div>
+            <span class="label">Latest</span>
+            <span id="metricLatest" class="value">0</span>
+          </div>
+          <div>
+            <span class="label">Peak</span>
+            <span id="metricPeak" class="value">0</span>
+          </div>
+          <div>
+            <span class="label">Average</span>
+            <span id="metricAvg" class="value">0</span>
+          </div>
+          <div>
+            <span class="label">Frames</span>
+            <span id="metricFrames" class="value">0</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card span-2">
+        <h2>Recent Trend</h2>
+        <canvas id="trendChart" height="120"></canvas>
+      </section>
+
+      <section class="card">
+        <h2>Real-Time Alerts</h2>
+        <div id="alertsList" class="alerts"></div>
+      </section>
+
+      <section class="card span-2">
+        <h2>Recent Log</h2>
+        <table class="log">
+          <thead>
+            <tr>
+              <th>Frame</th>
+              <th>People</th>
+            </tr>
+          </thead>
+          <tbody id="logBody"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+    <script src="/static/js/dashboard.js"></script>
+  </body>
+</html>
