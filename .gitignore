@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# Environment variables
+.env
+
+yolov8n.pt
+test_video.mp4
+
+# Output files
+*.csv
+app/output/

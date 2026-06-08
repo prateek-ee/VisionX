@@ -1,0 +1,7 @@
+fastapi==0.111.0
+uvicorn==0.30.1
+opencv-python==4.9.0.80
+ultralytics==8.2.103
+torch>=2.2.0
+numpy==1.26.4
+matplotlib>=3.8.0
